@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('location');
             $table->string('organizer');
-            $table->string('description');
+            $table->text('description');
             $table->string('documentation_file')->nullable();
             $table->string('certificate_file')->nullable();
             $table->string('results_url')->nullable();
