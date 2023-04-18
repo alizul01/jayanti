@@ -15,7 +15,7 @@ class CompetitionController extends Controller
      */
     public function index(): Response
     {
-        //
+        return response()->view('competitions.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class CompetitionController extends Controller
      */
     public function create(): Response
     {
-        //
+        return response()->view('competitions.create');
     }
 
     /**
@@ -31,7 +31,8 @@ class CompetitionController extends Controller
      */
     public function store(StoreCompetitionRequest $request): RedirectResponse
     {
-        //
+        Competition::create($request->validated());
+        return redirect()->route('competitions.index');
     }
 
     /**
@@ -39,7 +40,7 @@ class CompetitionController extends Controller
      */
     public function show(Competition $competition): Response
     {
-        //
+        return response()->view('competitions.show', compact('competition'));
     }
 
     /**
@@ -47,7 +48,7 @@ class CompetitionController extends Controller
      */
     public function edit(Competition $competition): Response
     {
-        //
+        return response()->view('competitions.edit', compact('competition'));
     }
 
     /**
@@ -55,7 +56,8 @@ class CompetitionController extends Controller
      */
     public function update(UpdateCompetitionRequest $request, Competition $competition): RedirectResponse
     {
-        //
+        $competition->update($request->validated());
+        return redirect()->route('competitions.index');
     }
 
     /**
@@ -63,6 +65,7 @@ class CompetitionController extends Controller
      */
     public function destroy(Competition $competition): RedirectResponse
     {
-        //
+        $competition->delete();
+        return redirect()->route('competitions.index');
     }
 }

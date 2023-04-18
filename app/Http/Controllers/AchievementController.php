@@ -15,15 +15,16 @@ class AchievementController extends Controller
      */
     public function index(): Response
     {
-        //
+        $achievements = Achievement::all();
+        return response()->view('achievements.index', compact('achievements'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create(Response $response): Response
     {
-        //
+        return response()->view('achievements.create');
     }
 
     /**
@@ -31,7 +32,8 @@ class AchievementController extends Controller
      */
     public function store(StoreAchievementRequest $request): RedirectResponse
     {
-        //
+        Achievement::create($request->validated());
+        return redirect()->route('achievements.index');
     }
 
     /**
@@ -39,7 +41,7 @@ class AchievementController extends Controller
      */
     public function show(Achievement $achievement): Response
     {
-        //
+        return response()->view('achievements.show', compact('achievement'));
     }
 
     /**
@@ -47,7 +49,7 @@ class AchievementController extends Controller
      */
     public function edit(Achievement $achievement): Response
     {
-        //
+        return response()->view('achievements.edit', compact('achievement'));
     }
 
     /**
@@ -55,7 +57,8 @@ class AchievementController extends Controller
      */
     public function update(UpdateAchievementRequest $request, Achievement $achievement): RedirectResponse
     {
-        //
+        $achievement->update($request->validated());
+        return redirect()->route('achievements.index');
     }
 
     /**
@@ -63,6 +66,7 @@ class AchievementController extends Controller
      */
     public function destroy(Achievement $achievement): RedirectResponse
     {
-        //
+        $achievement->delete();
+        return redirect()->route('achievements.index');
     }
 }
