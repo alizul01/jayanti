@@ -22,6 +22,8 @@ class StoreRankRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'rank_id' => ['required', 'integer', 'exists:ranks,id'],
+            'rank_name' => ['required', 'string', 'max:255'],
             //
         ];
     }
