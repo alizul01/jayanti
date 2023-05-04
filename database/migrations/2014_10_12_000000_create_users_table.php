@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nim')->unique();
+            $table->string('nim')->unique()->nullable();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('generation')->nullable();
+            $table->enum('role', ['admin', 'superadmin', 'user'])->comment('admin: can only manage users prestasi, superadmin: can manage all data');
             $table->rememberToken();
             $table->timestamps();
         });
