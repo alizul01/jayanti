@@ -22,7 +22,15 @@ class StoreCompetitionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'competition_id' => ['required', 'integer', 'exists:competitions,id'],
+            'competition_name' => ['required', 'string', 'max:255'],
+            'competition_level' => ['required', 'string', 'max:255'],
+            'start_date' => ['required', 'date'],
+            'end_date' => ['required', 'date', 'after_or_equal:date'],
+            'competition_requirtment' => ['required', 'string', 'max:1024'],
+            'competition_location' => ['required', 'string', 'max:255'],
+            'number_of_team' => ['required', 'integer'],
         ];
     }
+
 }

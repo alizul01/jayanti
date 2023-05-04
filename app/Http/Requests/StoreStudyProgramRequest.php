@@ -22,6 +22,8 @@ class StoreStudyProgramRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'study_program_id' => ['required', 'integer', 'exists:study_programs,id'],
+            'study_program_name' => ['required', 'string', 'max:255'],
             //
         ];
     }

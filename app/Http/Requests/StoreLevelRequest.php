@@ -22,6 +22,8 @@ class StoreLevelRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'level_id' => ['required', 'integer', 'exists:levels,id'],
+            'level_name' => ['required', 'string', 'max:255'],
             //
         ];
     }
