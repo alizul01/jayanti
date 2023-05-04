@@ -27,4 +27,5 @@ Route::middleware(['auth'])->group(function() {
 
     Route::resource('achievements', AchievementController::class);
     Route::resource('ranks', RankController::class);
+    Route::resource('competitions', CompetitionController::class);
 });
