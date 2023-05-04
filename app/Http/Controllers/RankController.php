@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\AdminMiddleware;
 use App\Models\Rank;
 use App\Http\Requests\StoreRankRequest;
 use App\Http\Requests\UpdateRankRequest;
@@ -10,12 +11,18 @@ use Illuminate\Http\Response;
 
 class RankController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(AdminMiddleware::class)->only('create');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): Response
     {
-        //
+        $ranks = Rank::all();
+        return response()->view('ranks.index', compact('ranks'));
     }
 
     /**
@@ -23,7 +30,7 @@ class RankController extends Controller
      */
     public function create(): Response
     {
-        //
+        return response()->view('ranks.create');
     }
 
     /**
@@ -31,7 +38,8 @@ class RankController extends Controller
      */
     public function store(StoreRankRequest $request): RedirectResponse
     {
-        //
+        $rank = Rank::create($request->validated());
+        return redirect()->route('ranks.index')->with('success', "Rank {$rank->name} created successfully.");
     }
 
     /**
@@ -39,7 +47,7 @@ class RankController extends Controller
      */
     public function show(Rank $rank): Response
     {
-        //
+        return response()->view('ranks.show', compact('rank'));
     }
 
     /**
@@ -47,7 +55,7 @@ class RankController extends Controller
      */
     public function edit(Rank $rank): Response
     {
-        //
+        return response()->view('ranks.edit', compact('rank'));
     }
 
     /**
@@ -55,7 +63,8 @@ class RankController extends Controller
      */
     public function update(UpdateRankRequest $request, Rank $rank): RedirectResponse
     {
-        //
+        $rank->update($request->validated());
+        return redirect()->route('ranks.index')->with('success', "Rank {$rank->name} updated successfully.");
     }
 
     /**
@@ -63,6 +72,7 @@ class RankController extends Controller
      */
     public function destroy(Rank $rank): RedirectResponse
     {
-        //
+        $rank->delete();
+        return redirect()->route('ranks.index')->with('success', "Rank {$rank->name} deleted successfully.");
     }
 }

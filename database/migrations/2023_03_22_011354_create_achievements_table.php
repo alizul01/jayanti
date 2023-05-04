@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('documentation_file')->nullable();
             $table->string('certificate_file')->nullable();
             $table->string('results_url')->nullable();
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

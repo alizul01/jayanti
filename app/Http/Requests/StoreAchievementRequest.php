@@ -26,6 +26,7 @@ class StoreAchievementRequest extends FormRequest
             'description' => ['required', 'string', 'max:1024'],
             'level_id' => ['required', 'integer', 'exists:levels,id'],
             'rank_id' => ['required', 'integer', 'exists:ranks,id'],
+            'user_id' => ['required', 'integer', 'exists:users,id'],
             'type' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'organizer' => ['required', 'string', 'max:255'],

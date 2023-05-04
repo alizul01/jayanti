@@ -5,32 +5,24 @@ namespace App\Http\Middleware;
 use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
 
-/**
- * Class AdminMiddleware
- *
- * This middleware checks if the authenticated user is an admin.
- * If not, a 403 Forbidden response is returned.
- *
- * @package App\Http\Middleware
- */
 class AdminMiddleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param  Request  $request
+     * @param  Closure  $next
+     * @return Response
      */
     public function handle(Request $request, Closure $next): Response
     {
-        /** @var User|null $user */
+        /** @var User $user */
         $user = $request->user();
 
-        if ($user === null || ! $user->isAdmin()) {
-            return response('Access denied. You must be an admin to access this resource.', 403);
+        if (! $user || ! $user->isAdmin()) {
+            abort(Response::HTTP_FORBIDDEN, 'Access denied. You must be an admin to access this resource.');
         }
 
         return $next($request);
