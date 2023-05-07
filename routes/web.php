@@ -19,16 +19,15 @@ use App\Http\Controllers\CompetitionController;
 */
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', [AuthController::class, 'index'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+  Route::get('/login', [AuthController::class, 'index'])->name('login');
+  Route::post('/login', [AuthController::class, 'login']);
 });
 
-Route::middleware(['auth'])->group(function() {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware(['auth'])->group(function () {
+  Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+  Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::resource('achievements', AchievementController::class);
-    Route::resource('ranks', RankController::class);
-    Route::resource('competitions', CompetitionController::class);
+  Route::resource('achievements', AchievementController::class);
+  Route::resource('ranks', RankController::class);
+  Route::resource('competitions', CompetitionController::class);
 });
-

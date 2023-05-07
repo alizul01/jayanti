@@ -1,53 +1,37 @@
 @extends('layout.auth')
 
 @section('content')
-    <div class="bg-gray-100 h-screen">
-        <div class="container mx-auto h-full flex justify-center items-center">
-            <div class="w-96 bg-white rounded p-6 shadow-xl">
-                <h1 class="text-3xl font-semibold mb-6 text-center">Login</h1>
-                <form action="{{ route('login') }}" method="post">
-                    @csrf
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="email" type="email" name="email" value="{{ old('email') }}" required
-                            autocomplete="email" autofocus>
-                        @error('email')
-                            <span class="text-red-500 text-xs">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password:</label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password" type="password" name="password" required autocomplete="current-password">
-                        @error('password')
-                            <span class="text-red-500 text-xs">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <label class="inline-flex items-center">
-                            <input class="form-checkbox" type="checkbox" name="remember" id="remember"
-                                {{ old('remember') ? 'checked' : '' }}>
-                            <span class="ml-2 text-sm text-gray-700">Remember Me</span>
-                        </label>
-                        @if (Route::has('password.request'))
-                            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                                href="{{ route('password.request') }}">
-                                Forgot Password?
-                            </a>
-                        @endif
-                    </div>
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit">
-                            Login
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 ">
+    <form class="space-y-6" action="#">
+      <div class="flex justify-center">
+        <h5 class="text-2xl font-bold text-gray-900">Login</h5>
+      </div>
+      <div class="flex flex-col items-center">
+        <label for="username" class="block mb-2 text-md font-medium text-gray-900">
+          Username
+        </label>
+        <input type="text" name="username" id="username"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required>
+      </div>
+      <div class="flex flex-col items-center">
+        <label for="password" class="block mb-2 text-md font-medium text-gray-900">
+          Password
+        </label>
+        <input type="password" name="password" id="password"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href=""
+          class="no-underline w-full text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+          Kembali
+        </a>
+        <button type="submit"
+          class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
 @endsection
