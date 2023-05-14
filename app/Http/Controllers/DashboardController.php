@@ -10,12 +10,16 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // Fungsi menampilkan achievement dan competition terbaru
         $achievements = Achievement::orderBy('created_at', 'desc')->take(5)->get();
         $competitions = Competition::orderBy('created_at', 'desc')->take(5)->get();
-        return response()->view('dashboard.index', compact('achievements', 'competitions'));
 
         // Fungsi menampilkan user bedasarkan point tertinggi
         $users = User::orderBy('point')->get();
-        return view('dashboard.index', compact('name','nim','prodi','point'));
+
+        //Return
+        return response()->view('dashboard.index', compact('achievements', 'competitions', 'users'));
+
+
     }
 }
