@@ -18,6 +18,10 @@ use App\Http\Controllers\CompetitionController;
 |
 */
 
+Route::get('/dashboard', function () {
+  return view('dashboard.index');
+});
+
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', [AuthController::class, 'index'])->name('login');
   Route::post('/login', [AuthController::class, 'login']);
