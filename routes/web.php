@@ -22,6 +22,14 @@ Route::get('/dashboard', function () {
   return view('dashboard.index');
 });
 
+Route::get('/prestasi', function () {
+  return view('achievements.index');
+});
+
+Route::get('/buat-prestasi', function () {
+  return view('achievements.create');
+});
+
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', [AuthController::class, 'index'])->name('login');
   Route::post('/login', [AuthController::class, 'login']);

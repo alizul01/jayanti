@@ -2,14 +2,14 @@
   <h1 class="font-semibold text-2xl text-center">Rangking</h1>
   <div class="border border-gray-300 rounded-lg shadow-sm p-5">
     <div class="flex items-center gap-7">
-      <span class="text-5xl font-medium">1</span>
+      <span class="text-5xl font-medium ml-2">1</span>
       <div class="border border-black rounded-full p-5 h-fit"></div>
       <div class="flex flex-col gap-1">
         <span>Alfan Olivan</span>
         <span>2141720078</span>
         <span>D4 Teknik Informatika</span>
       </div>
-      <span class="ml-auto text-5xl font-semibold">99</span>
+      <span class="ml-auto text-5xl font-semibold">98</span>
     </div>
   </div>
   <div class="border border-gray-300 rounded-lg shadow-sm p-5">

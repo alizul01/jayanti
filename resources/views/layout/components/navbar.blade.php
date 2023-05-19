@@ -1,4 +1,4 @@
-<nav class="bg-gray-700 text-white border-gray-200 px-10 py-1">
+<nav class="bg-gray-700 text-white border-gray-200 px-16 py-1">
   <div class="flex flex-wrap items-center gap-8 mx-auto p-4">
     <a href="/" class="flex items-center">
       <h1>Logo Jayanti</h1>
@@ -24,6 +24,11 @@
           <a href="#"
             class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Agenda</a>
         </li>
+        <li>
+          <a href="#"
+            class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Prestasi</a>
+        </li>
+
       </ul>
     </div>
     <div class="ml-auto">
