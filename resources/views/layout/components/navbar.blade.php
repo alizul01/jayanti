@@ -13,19 +13,19 @@
       <ul
         class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-700 md:flex-row md:space-x-8 md:mt-0 md:border-0">
         <li>
-          <a href="#"
+          <a href="{{ route('dashboard') }}"
             class="block py-2 pl-3 pr-4 text-blue-500 bg-blue-700 rounded md:bg-transparent md:p-0">Beranda</a>
         </li>
         <li>
-          <a href="#"
+          <a href="{{ route('ranks.index') }}"
             class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Rangking</a>
         </li>
         <li>
-          <a href="#"
+          <a href="{{ route('competitions.index') }}"
             class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Agenda</a>
         </li>
         <li>
-          <a href="#"
+          <a href="{{ route('achievements.index') }}"
             class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Prestasi</a>
         </li>
 

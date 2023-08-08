@@ -15,7 +15,7 @@ class AchievementController extends Controller
      */
     public function index(): Response
     {
-        $achievements = Achievement::all();
+        $achievements = Achievement::paginate(6);
         return response()->view('achievements.index', compact('achievements'));
     }
 

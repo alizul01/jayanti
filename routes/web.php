@@ -32,7 +32,7 @@ Route::get('/buat-prestasi', function () {
 
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', [AuthController::class, 'index'])->name('login');
-  Route::post('/login', [AuthController::class, 'login']);
+  Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 });
 
 Route::middleware(['auth'])->group(function () {
