@@ -1,13 +1,13 @@
-<nav class="bg-gray-700 text-white border-gray-200 px-16 py-1">
+<nav class="bg-gray-700 text-white border-gray-200 md:px-16 py-1">
   <div class="flex flex-wrap items-center gap-8 mx-auto p-4">
-    <a href="/" class="flex items-center">
-      <h1>Logo Jayanti</h1>
+    <a href="/" class="items-center border p-2 bg-white rounded-full md:flex hidden">
+      <img src="{{ asset('img/logo.png') }}" alt="logo" srcset="" class="w-10">
     </a>
     <button data-collapse-toggle="navbar-default" type="button"
       class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
       aria-controls="navbar-default" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
-      <h1>Logo Jayanti</h1>
+      <i class="bx bx-menu text-3xl"></i>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
