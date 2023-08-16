@@ -30,6 +30,10 @@ Route::get('/buat-prestasi', function () {
   return view('achievements.create');
 });
 
+Route::get('/kompetisi', function () {
+  return view('competitions.index');
+});
+
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', [AuthController::class, 'index'])->name('login');
   Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
