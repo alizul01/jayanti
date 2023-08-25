@@ -10,4 +10,14 @@ class Achievement extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['rank', 'level'];
+  public function rank(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+  {
+    return $this->belongsTo(Rank::class, 'rank_id', 'id');
+  }
+
+  public function level()
+  {
+    return $this->belongsTo(Level::class, 'level_id', 'id');
+  }
 }

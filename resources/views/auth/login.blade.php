@@ -12,8 +12,13 @@
           Username
         </label>
         <input type="text" name="email" id="email" value="{{old('email')}}"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          required>
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+               required>
+        @error('email')
+        <p class="text-red-500">
+          {{$message}}
+        </p>
+        @enderror
       </div>
       <div class="flex flex-col items-center">
         <label for="password" class="block mb-2 text-md font-medium text-gray-900">

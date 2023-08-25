@@ -22,7 +22,7 @@ class AuthController extends Controller
     }
 
 
-    toast('Something Wrong!', 'error');
+    toast('Invalid Credentials', 'error');
     return back()->withErrors([
       'email' => 'The provided credentials do not match our records.',
     ]);

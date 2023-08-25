@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('admin_id')->constrained('admins');
             $table->string('name');
             $table->string('type');
             $table->string('location');

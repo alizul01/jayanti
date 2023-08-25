@@ -9,17 +9,19 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
-        $this->call([
-            UserSeeder::class,
-            AdminSeeder::class,
-            LevelSeeder::class,
-            RankSeeder::class,
-            AchievementSeeder::class,
-        ]);
-    }
+  /**
+   * Seed the application's database.
+   */
+  public function run(): void
+  {
+    $this->call([
+      StudyProgramSeeder::class,
+      UserSeeder::class,
+      CompetitionSeeder::class,
+      AdminSeeder::class,
+      LevelSeeder::class,
+      RankSeeder::class,
+      AchievementSeeder::class,
+    ]);
+  }
 }

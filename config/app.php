@@ -16,6 +16,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'api_endpoint' => env('API_ENDPOINT', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------

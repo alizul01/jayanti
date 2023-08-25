@@ -3,36 +3,13 @@
     Terbaru
   </h5>
   <div>
-    <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
-      <span>Alfan Olivan</span>
-      <span>2141720078</span>
-      <span>Juara 2 Intercomp JTI</span>
-    </div>
-    <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
-      <span>Alfan Olivan</span>
-      <span>2141720078</span>
-      <span>Juara 2 Intercomp JTI</span>
-    </div>
-    <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
-      <span>Alfan Olivan</span>
-      <span>2141720078</span>
-      <span>Juara 2 Intercomp JTI</span>
-    </div>
-    <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
-      <span>Alfan Olivan</span>
-      <span>2141720078</span>
-      <span>Juara 2 Intercomp JTI</span>
-    </div>
-    <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
-      <span>Alfan Olivan</span>
-      <span>2141720078</span>
-      <span>Juara 2 Intercomp JTI</span>
-    </div>
-    <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
-      <span>Alfan Olivan</span>
-      <span>2141720078</span>
-      <span>Juara 2 Intercomp JTI</span>
-    </div>
+{{--    @foreach()--}}
+      <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
+        <span>Alfan Olivan</span>
+        <span>2141720078</span>
+        <span>Juara 2 Intercomp JTI</span>
+      </div>
+{{--    @endforeach--}}
     <div class="border-t-2 border-gray-700"></div>
   </div>
 </div>

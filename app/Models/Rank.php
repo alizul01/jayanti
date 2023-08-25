@@ -12,4 +12,9 @@ class Rank extends Model
     protected $fillable = [
         'name',
     ];
+
+  public function achievements(): \Illuminate\Database\Eloquent\Relations\HasMany
+  {
+    return $this->hasMany(Achievement::class, 'rank_id', 'id');
+  }
 }

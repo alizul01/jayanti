@@ -18,22 +18,6 @@ use App\Http\Controllers\CompetitionController;
 |
 */
 
-Route::get('/dashboard', function () {
-  return view('dashboard.index');
-});
-
-Route::get('/prestasi', function () {
-  return view('achievements.index');
-});
-
-Route::get('/buat-prestasi', function () {
-  return view('achievements.create');
-});
-
-Route::get('/kompetisi', function () {
-  return view('competitions.index');
-});
-
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', [AuthController::class, 'index'])->name('login');
   Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
@@ -41,8 +25,7 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
   Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-  Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
+  Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
   Route::resource('achievements', AchievementController::class);
   Route::resource('ranks', RankController::class);
   Route::resource('competitions', CompetitionController::class);
