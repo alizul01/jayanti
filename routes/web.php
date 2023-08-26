@@ -18,6 +18,26 @@ use App\Http\Controllers\CompetitionController;
 |
 */
 
+Route::get('/admin/home', function () {
+  return view('admin.index');
+})->name('admin.home');
+
+Route::get('/admin/ranks', function () {
+  return view('admin.ranks.index');
+})->name('admin.ranks');
+
+Route::get('/admin/competitions', function () {
+  return view('admin.competitions.index');
+})->name('admin.competitions');
+
+Route::get('/admin/competitions/create', function () {
+  return view('admin.competitions.create');
+})->name('admin.competitions.create');
+
+Route::get('/admin/achievements', function () {
+  return view('admin.achievements.index');
+})->name('admin.achievements');
+
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', [AuthController::class, 'index'])->name('login');
   Route::post('/login', [AuthController::class, 'login'])->name('auth.login');

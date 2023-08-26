@@ -2,6 +2,10 @@
 
 @section('content')
   <main class="flex flex-col gap-10 px-20 py-6 bg-gray-100 min-h-screen">
+    <div class="flex flex-col gap-5">
+      <h1 class="font-semibold text-3xl mx-auto tracking-wide">Daftar Kompetisi</h1>
+      <hr class="border-t-2 border-gray-300">
+    </div>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow">
         <div class="flex justify-between items-center mb-3">

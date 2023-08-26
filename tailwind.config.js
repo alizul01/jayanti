@@ -11,5 +11,8 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [require("flowbite/plugin"), require("@tailwindcss/line-clamp"), require('tailwindcss-plugins/pagination')],
+  plugins: [
+    require("flowbite/plugin"),
+    require("tailwindcss-plugins/pagination"),
+  ],
 };
