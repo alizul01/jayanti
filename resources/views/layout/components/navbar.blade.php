@@ -18,7 +18,7 @@
         </li>
         <li>
           <a href="{{ route('ranks.index') }}"
-            class="block py-2 pl-3 pr-4 {{ Request::route()->getName() === 'ranks.index' ? 'text-blue-500' : 'text-white' }} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Rangking</a>
+            class="block py-2 pl-3 pr-4 {{ Request::route()->getName() === 'ranks.index' ? 'text-blue-500' : 'text-white' }} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Ranking</a>
         </li>
         <li>
           <a href="{{ route('competitions.index') }}"

@@ -18,7 +18,7 @@
   @endforeach
   <div class="border-t-2 border-gray-700 py-2"></div>
   <a href="#"
-    class="flex justify-end ml-auto max-w-fit px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+     class="flex justify-end ml-auto max-w-fit px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
     Selengkapnya
   </a>
 </div>

@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rank extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-        'name',
-    ];
+  protected $fillable = [
+    'name',
+  ];
 
   public function achievements(): \Illuminate\Database\Eloquent\Relations\HasMany
   {

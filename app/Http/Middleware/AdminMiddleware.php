@@ -6,6 +6,7 @@ use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class AdminMiddleware
 {
@@ -14,15 +15,14 @@ class AdminMiddleware
      *
      * @param  Request  $request
      * @param  Closure  $next
-     * @return Response
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
         /** @var User $user */
         $user = $request->user();
 
         if (! $user || ! $user->isAdmin()) {
-            abort(Response::HTTP_FORBIDDEN, 'Access denied. You must be an admin to access this resource.');
+            abort(ResponseAlias::HTTP_FORBIDDEN, 'Access denied. You must be an admin to access this resource.');
         }
 
         return $next($request);

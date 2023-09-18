@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
       AdminSeeder::class,
       LevelSeeder::class,
       RankSeeder::class,
-      AchievementSeeder::class,
+//      AchievementSeeder::class,
     ]);
   }
 }

@@ -18,8 +18,10 @@ class CompetitionFactory extends Factory
     {
         return [
           'name' => $this->faker->name,
+          'description' => $this->faker->text,
           'type' => $this->faker->jobTitle,
-          'location' => $this->faker->country,
+          'city' => $this->faker->city,
+          'province' => $this->faker->country,
           'organizer' => $this->faker->name,
           'start_date' => $this->faker->date,
           'end_date' => $this->faker->date

@@ -15,7 +15,7 @@
             </div>
           </li>
           <li>
-            <a href="/admin/home"
+            <a href="{{ route('admin.index') }}"
               class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
               <span class="inline-flex justify-center items-center ml-4">
                 <i class="bx bx-home text-lg"></i>
@@ -30,10 +30,6 @@
                 <i class="bx bx-bar-chart-alt-2 text-lg"></i>
               </span>
               <span class="ml-2 text-sm tracking-wide truncate">Ranking</span>
-              {{-- <span
-                class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">
-                New
-              </span> --}}
             </a>
           </li>
           <li>
@@ -60,7 +56,7 @@
             </div>
           </li>
           <li>
-            <a href="#"
+            <a href="{{ route('logout') }}"
               class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
               <span class="inline-flex justify-center items-center ml-4">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"

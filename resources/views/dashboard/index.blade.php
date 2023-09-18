@@ -7,8 +7,8 @@
       @include('dashboard.components.agenda-card')
     </section>
     <section class="grid grid-cols-1 gap-6 md:flex md:gap-10">
-      @include('dashboard.components.rangking')
-      @include('dashboard.components.terbaru')
+      @include('dashboard.components.rank')
+      @include('dashboard.components.newest')
     </section>
   </main>
 @endsection

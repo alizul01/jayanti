@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RankController;
@@ -18,25 +19,19 @@ use App\Http\Controllers\CompetitionController;
 |
 */
 
-Route::get('/admin/home', function () {
-  return view('admin.index');
-})->name('admin.home');
-
-Route::get('/admin/ranks', function () {
-  return view('admin.ranks.index');
-})->name('admin.ranks');
-
-Route::get('/admin/competitions', function () {
-  return view('admin.competitions.index');
-})->name('admin.competitions');
-
-Route::get('/admin/competitions/create', function () {
-  return view('admin.competitions.create');
-})->name('admin.competitions.create');
 
 Route::get('/admin/achievements', function () {
   return view('admin.achievements.index');
 })->name('admin.achievements');
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+  Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+  Route::get('/ranks', [AdminController::class, 'rank'])->name('admin.ranks');
+  Route::resource('competitions', CompetitionController::class);
+  Route::prefix('/achievements')->group(function () {
+    Route::get('/', [AchievementController::class, 'index'])->name('achievement.admin.index');
+  });
+});
 
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', [AuthController::class, 'index'])->name('login');

@@ -18,13 +18,15 @@ class StoreAchievementRequest extends FormRequest
 
   public function calculateScore($description, $title, $institution, $level, $ranking): float
   {
-    $response = Http::post(config('app.api_endpoint'), [
+    $queryString = http_build_query([
       'deskripsi' => $description,
       'judul' => $title,
       'instansi' => $institution,
       'tingkat' => $level,
       'peringkat' => $ranking,
     ]);
+    $apiEndpoint = config('app.api_endpoint') . '?' . $queryString;
+    $response = Http::post($apiEndpoint);
 
     return $response->json()['result'];
   }

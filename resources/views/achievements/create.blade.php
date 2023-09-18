@@ -45,8 +45,7 @@
         </label>
         <textarea id="description" name="description" rows="4"
                   class="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-300 focus:border-blue-300"
-                  value="{{old('description')}}"
-                  required></textarea>
+                  required>{{old('description')}}</textarea>
       </div>
       <div>
         <label for="organizer" class="block mb-2 font-medium text-gray-900">Instansi Penyelenggara<span
@@ -73,6 +72,7 @@
           </label>
           <input type="date" id="start_date" name="start_date"
                  class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+                 value="{{old('start_date')}}"
                  required>
         </div>
         <div class="flex-1">
@@ -81,6 +81,7 @@
           </label>
           <input type="date" id="end_date" name="end_date"
                  class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+                 value="{{old('end_date')}}"
                  required>
         </div>
       </div>

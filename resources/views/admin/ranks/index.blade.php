@@ -9,30 +9,19 @@
         </p>
       </div>
       <div class="flex flex-col gap-5">
-        <div class="border border-gray-300 rounded-lg shadow-sm p-5">
-          <div class="flex items-center gap-7">
-            <span class="text-5xl font-medium ml-2">1</span>
-            <div class="border border-black rounded-full p-5 h-fit"></div>
-            <div class="flex flex-col gap-1">
-              <span class="font-semibold">Alfan Olivan</span>
-              <span class="text-gray-500">2141720078</span>
-              <span class="font-semibold">D4 Teknik Informatika</span>
+        @foreach($ranks as $item)
+          <div class="border border-gray-300 rounded-lg shadow-sm p-5">
+            <div class="flex items-center gap-7">
+              <span class="text-5xl font-medium ml-2">{{$loop->iteration}}</span>
+              <div class="border border-black rounded-full p-5 h-fit"></div>
+              <div class="flex flex-col gap-1">
+                <span class="font-semibold">{{$item->user->name}}</span>
+                <span class="text-gray-500">{{$item->user->studyprograms->name}}</span>
+              </div>
+              <span class="ml-auto text-5xl font-semibold">{{$item->total_score}}</span>
             </div>
-            <span class="ml-auto text-5xl font-semibold">98</span>
           </div>
-        </div>
-        <div class="border border-gray-300 rounded-lg shadow-sm p-5">
-          <div class="flex items-center gap-7">
-            <span class="text-5xl font-medium ml-2">2</span>
-            <div class="border border-black rounded-full p-5 h-fit"></div>
-            <div class="flex flex-col gap-1">
-              <span class="font-semibold">Alfan Olivan</span>
-              <span class="text-gray-500">2141720078</span>
-              <span class="font-semibold">D4 Teknik Informatika</span>
-            </div>
-            <span class="ml-auto text-5xl font-semibold">98</span>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
     <nav class="flex items-center justify-between p-4 border-t" aria-label="Table navigation">
@@ -42,28 +31,28 @@
       <ul class="inline-flex -space-x-px text-sm h-8">
         <li>
           <a href="#"
-            class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
+             class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
             Previous
           </a>
         </li>
         <li>
           <a href="#"
-            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">
+             class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">
             1
           </a>
         </li>
         <li>
           <a href="#"
-            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">
+             class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">
             2
           </a>
         </li>
         <li>
           <a href="#"
-            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">
+             class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">
             Next
           </a>
         </li>
       </ul>
     </nav>
-  @endsection
+@endsection

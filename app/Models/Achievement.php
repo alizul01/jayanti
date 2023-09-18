@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Achievement extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $guarded = ['id'];
-    protected $with = ['rank', 'level'];
+  protected $guarded = ['id'];
+  protected $with = ['rank', 'level', 'user'];
+
   public function rank(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {
     return $this->belongsTo(Rank::class, 'rank_id', 'id');
@@ -19,5 +20,10 @@ class Achievement extends Model
   public function level()
   {
     return $this->belongsTo(Level::class, 'level_id', 'id');
+  }
+
+  public function user()
+  {
+    return $this->belongsTo(User::class, 'user_id', 'id');
   }
 }
