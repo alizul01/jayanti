@@ -50,10 +50,10 @@ class StoreAchievementRequest extends FormRequest
       'organizer' => ['required', 'string', 'max:255'],
       'start_date' => ['required', 'date'],
       'end_date' => ['required', 'date', 'after_or_equal:start_date'],
-      'idea_file' => ['file', 'max:2048', 'mimes:pdf'],
-      'poster_file' => ['file', 'max:2048', 'mimes:png,jpg'],
-      'documentation_file' => ['file', 'max:2048', 'mimes:png,jpg'],
-      'certificate_file' => ['file', 'max:2048', 'mimes:pdf'],
+      'idea_file' => ['file', 'max:2048', 'mimes:pdf', 'required'],
+      'poster_file' => ['file', 'max:2048', 'mimes:png,jpg,jpeg', 'required'],
+      'documentation_file' => ['file', 'max:2048', 'mimes:png,jpeg,jpg', 'required'],
+      'certificate_file' => ['file', 'max:2048', 'mimes:pdf', 'required'],
       'score' => ['nullable', 'numeric'],
     ];
   }

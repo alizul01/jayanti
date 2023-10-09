@@ -20,12 +20,14 @@ class AchievementController extends Controller
 
   public function index(): Response
   {
-    $achievements = Achievement::where('user_id', '=', Auth::user()->id)->paginate(5);
+
     $isAdmin = Auth::user()->role == 'admin';
 
     if ($isAdmin) {
+      $achievements = Achievement::paginate(15);
       return response()->view('admin.achievements.index', compact('achievements'));
     }
+    $achievements = Achievement::where('user_id', '=', Auth::user()->id)->paginate(5);
 
     return response()->view('achievements.index', compact('achievements'));
   }
