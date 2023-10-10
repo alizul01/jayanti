@@ -28,7 +28,7 @@ class AuthController extends Controller
         return redirect('/admin');
       } else {
         toast('Berhasil Masuk!', 'success');
-        return redirect('/dashboard');
+        return redirect('/');
       }
     }
 
