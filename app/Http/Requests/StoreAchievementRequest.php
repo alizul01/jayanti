@@ -6,6 +6,7 @@ use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
 
+
 class StoreAchievementRequest extends FormRequest
 {
   /**
@@ -17,19 +18,32 @@ class StoreAchievementRequest extends FormRequest
   }
 
   public function calculateScore($description, $title, $institution, $level, $ranking): float
-  {
-    $queryString = http_build_query([
-      'deskripsi' => $description,
-      'judul' => $title,
-      'instansi' => $institution,
-      'tingkat' => $level,
-      'peringkat' => $ranking,
-    ]);
-    $apiEndpoint = config('app.api_endpoint') . '?' . $queryString;
-    $response = Http::post($apiEndpoint);
+    {
+        $queryString = http_build_query([
+            'deskripsi' => $description,
+            'judul' => $title,
+            'instansi' => $institution,
+            'tingkat' => $level,
+            'peringkat' => $ranking,
+        ]);
+        $apiEndpoint = config('app.api_endpoint') . '?' . $queryString;
 
-    return $response->json()['result'];
-  }
+        try {
+            $response = Http::post($apiEndpoint);
+            $data = $response->json();
+
+            if (isset($data['result'])) {
+                return (float) $data['result'];
+            } else {
+                // Tangani jika respon tidak memiliki hasil yang diharapkan
+                throw new \Exception("API response doesn't contain the expected 'result' field.");
+            }
+        } catch (\Exception $e) {
+            // Tangani pengecualian yang terjadi selama permintaan HTTP
+            // Anda dapat mengembalikan nilai default atau melakukan penanganan sesuai kebijakan Anda
+            return 0.0; // Misalnya, mengembalikan nilai 0 sebagai nilai default jika terjadi kesalahan
+        }
+    }
 
 
   /**

@@ -38,6 +38,7 @@ class AchievementController extends Controller
   public function create(Response $response): Response
   {
     $study_program = StudyProgram::all();
+    // dd($study_program);
     return response()->view('achievements.create');
   }
 
@@ -46,6 +47,7 @@ class AchievementController extends Controller
    */
   public function store(StoreAchievementRequest $request): RedirectResponse
   {
+    // dd($request->all());
     $score = $request->calculateScore(
       $request->input('description'),
       $request->input('competition_name'),
@@ -114,6 +116,7 @@ class AchievementController extends Controller
    */
   public function destroy(Achievement $achievement): RedirectResponse
   {
+
     $achievement->delete();
     toast('Berhasil menghapus prestasi', 'success');
     return redirect()->route('achievements.index');
