@@ -33,6 +33,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
   Route::prefix('/achievements')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('achievement.admin.index');
   });
+  Route::get('/upload-form', [ImportController::class, 'showUploadForm'])->name('import.form');
+  Route::post('/upload', [ImportController::class, 'upload'])->name('import.upload');
+
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -48,5 +51,3 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('competitions', CompetitionController::class);
 });
 
-Route::get('/upload-form', [ImportController::class, 'showUploadForm'])->name('import.form');
-Route::post('/upload', [ImportController::class, 'upload'])->name('import.upload');

@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Upload File Excel</title>
-</head>
-<body>
+@extends('layout.admin')
+@section('content')
+  <section>
     <h1>Upload File Excel</h1>
 
     @if ($errors->any())
@@ -34,5 +30,6 @@
         <input type="file" name="excel_file">
         <button type="submit">Upload</button>
     </form>
-</body>
-</html>
+
+  </section>
+@endsection

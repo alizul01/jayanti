@@ -20,8 +20,8 @@ class UserImport implements ToCollection
                 'nim' => $row[0], // Kolom 'nim'
                 'name' => $row[1], // Kolom 'name'
                 'email' => $row[2], // Kolom 'email'
-                'role' => $row[4], // Kolom 'role'
                 'password' => Hash::make($row[3]), // Kolom 'password' dienkripsi menggunakan Hash
+                'role' => $row[4], // Kolom 'role'
                 'study_program_id' => $row[5], // Kolom 'study_program_id'
             ]);
         }
