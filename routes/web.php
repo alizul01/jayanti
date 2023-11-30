@@ -7,6 +7,8 @@ use App\Http\Controllers\RankController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\ImportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +47,6 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('ranks', RankController::class);
   Route::resource('competitions', CompetitionController::class);
 });
+
+Route::get('/upload-form', [ImportController::class, 'showUploadForm'])->name('import.form');
+Route::post('/upload', [ImportController::class, 'upload'])->name('import.upload');
