@@ -19,5 +19,19 @@ class DashboardController extends Controller
         $achievements = Achievement::orderBy('created_at', 'desc')->take(5)->get();
         $competitions = Competition::orderBy('created_at', 'desc')->take(3)->get();
         return response()->view('dashboard.index', compact('achievements', 'competitions', 'ranks'));
+<<<<<<< Updated upstream
+=======
+        // Fungsi menampilkan achievement dan competition terbaru
+        // $achievements = Achievement::orderBy('created_at', 'desc')->take(5)->get();
+        // $competitions = Competition::orderBy('created_at', 'desc')->take(5)->get();
+
+        // // Fungsi menampilkan user bedasarkan point tertinggi
+        // $users = User::orderBy('point')->get();
+
+        // //Return
+        // return response()->view('dashboard.index', compact('achievements', 'competitions', 'users'));
+
+
+>>>>>>> Stashed changes
     }
 }
