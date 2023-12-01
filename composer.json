@@ -10,6 +10,7 @@
         "laravel/framework": "^10.8.0",
         "laravel/sanctum": "^3.2.1",
         "laravel/tinker": "^2.8.1",
+        "maatwebsite/excel": "^1.1",
         "realrashid/sweet-alert": "^6.0"
     },
     "require-dev": {
