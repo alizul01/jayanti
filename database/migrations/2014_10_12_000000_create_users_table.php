@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'superadmin', 'user'])->comment('admin: can only manage users prestasi, superadmin: can manage all data');
+            $table->enum('role', ['admin', 'superadmin', 'user'])->comment('admin: can only manage users prestasi, superadmin: can manage all data')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

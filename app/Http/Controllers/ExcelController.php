@@ -15,8 +15,8 @@ class ExcelController extends Controller
     ]);
 
     $path = $request->file('file')->getRealPath();
-    dd($path);
-    $data = Excel::import($path)->get();
+    $data = Excel::load($path)->get();
+    dd($data);
     if ($data->count()) {
       foreach ($data as $key => $value) {
         $arr[] = [

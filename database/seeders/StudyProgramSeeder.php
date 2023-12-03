@@ -15,13 +15,13 @@ class StudyProgramSeeder extends Seeder
   {
     $study = [
       [
-        'name' => 'D4 Teknik Informatika'
+        'name' => 'D-IV T. Informatika'
       ],
       [
-        'name' => 'D4 Sistem Informasi Bisnis'
+        'name' => 'D-IV Sistem Informasi Bisnis'
       ],
       [
-        'name' => 'D2 Fast Track'
+        'name' => 'D-II Pengembangan Perangkat (Piranti) Lunak Situs'
       ],
     ];
 

@@ -2,28 +2,47 @@
 
 namespace App\Imports;
 
+use App\Models\StudyProgram;
 use App\Models\User;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Hash; // Import class Hash untuk melakukan hashing password
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
 class UserImport implements ToCollection
 {
-    /**
-     * @param  \Illuminate\Support\Collection  $collection
-     * @return void
-     */
     public function collection(Collection $collection)
     {
-        foreach ($collection as $row) {
-            User::create([
-                'nim' => $row[0], // Kolom 'nim'
-                'name' => $row[1], // Kolom 'name'
-                'email' => $row[2], // Kolom 'email'
-                'password' => Hash::make($row[3]), // Kolom 'password' dienkripsi menggunakan Hash
-                'role' => $row[4], // Kolom 'role'
-                'study_program_id' => $row[5], // Kolom 'study_program_id'
-            ]);
+        $collection->shift();
+
+        $chunkSize = 200;
+        $chunks = $collection->chunk($chunkSize);
+
+        foreach ($chunks as $rows) {
+            $usersData = [];
+
+            foreach ($rows as $row) {
+                $usersData[] = [
+                    'nim' => (int)$row[2],
+                    'name' => $row[3],
+                    'email' => $this->createEmailFromNim($row[2]),
+                    'password' => Hash::make((int)$row[2]),
+                    'study_program_id' => $this->getStudyProgramId($row[4]),
+                ];
+            }
+
+            User::upsert($usersData, ['nim'], ['name', 'email', 'password', 'study_program_id']);
         }
     }
+
+    private function getStudyProgramId(string $studyProgramName): int
+    {
+        $studyProgram = StudyProgram::where('name', $studyProgramName)->first();
+        return $studyProgram ? $studyProgram->id : 0;
+    }
+
+    private function createEmailFromNim(string $nim): string
+    {
+        return $nim . '@student.polinema.ac.id';
+    }
 }
+

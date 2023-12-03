@@ -24,9 +24,11 @@ class ImportController extends Controller
         try {
             Excel::import(new UserImport, $file);
 
-            return redirect()->back()->with('success', 'File berhasil diimpor ke model User.');
+            toast('File berhasil diimport ke model User.', 'success');
+            return redirect()->back();
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            toast('Terjadi kesalahan: ' . $e->getMessage(), 'error');
+            return redirect()->back();
         }
     }
 }
