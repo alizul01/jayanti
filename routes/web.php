@@ -7,6 +7,8 @@ use App\Http\Controllers\RankController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\ImportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
   Route::prefix('/achievements')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('achievement.admin.index');
   });
+  Route::get('/upload-form', [ImportController::class, 'showUploadForm'])->name('import.form');
+  Route::post('/upload', [ImportController::class, 'upload'])->name('import.upload');
+
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -48,3 +53,4 @@ Route::middleware(['auth'])->group(function () {
   // route untuk post create achievement
   Route::post('/store/achievements', [AchievementController::class, 'store'])->name('achievements.store');
 });
+
