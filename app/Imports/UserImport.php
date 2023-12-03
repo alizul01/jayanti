@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Imports;
+ini_set('max_execution_time', '0');
 
 use App\Models\StudyProgram;
 use App\Models\User;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class UserImport implements ToCollection
+class UserImport implements ToCollection, WithChunkReading
 {
+    private $importedCount = 0;
+
     public function collection(Collection $collection)
     {
         $collection->shift();
@@ -22,16 +26,32 @@ class UserImport implements ToCollection
 
             foreach ($rows as $row) {
                 $usersData[] = [
-                    'nim' => (int)$row[2],
+                    'nim' => (int) $row[2],
                     'name' => $row[3],
                     'email' => $this->createEmailFromNim($row[2]),
-                    'password' => Hash::make((int)$row[2]),
+                    'password' => bcrypt((int) $row[2]), // Using bcrypt for Argon2 hashing
                     'study_program_id' => $this->getStudyProgramId($row[4]),
                 ];
+
+                $this->importedCount++;
+
+                if ($this->importedCount % 100 === 0) {
+                    $this->logImportProgress();
+                }
             }
 
             User::upsert($usersData, ['nim'], ['name', 'email', 'password', 'study_program_id']);
         }
+
+        // Log any remaining imported data
+        if ($this->importedCount % 100 !== 0) {
+            $this->logImportProgress();
+        }
+    }
+
+    public function chunkSize(): int
+    {
+        return 200; // Set the desired chunk size
     }
 
     private function getStudyProgramId(string $studyProgramName): int
@@ -44,5 +64,12 @@ class UserImport implements ToCollection
     {
         return $nim . '@student.polinema.ac.id';
     }
+
+    private function logImportProgress()
+    {
+        info("Imported $this->importedCount data");
+    }
 }
+
+
 
