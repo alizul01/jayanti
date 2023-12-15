@@ -1,12 +1,12 @@
 @extends('layout.user')
 @section('content')
   <main class="flex flex-col gap-10 px-20 py-6 bg-gray-100 min-h-screen">
-    <div class="flex flex-col gap-5">
-      <h1 class="font-semibold text-3xl mx-auto tracking-wide">Daftar Ranking Mahasiswa</h1>
-      <hr class="border-t-2 border-gray-300">
-    </div>
-    <div class="w-full p-6 flex flex-col gap-5 bg-white border border-gray-300 rounded-lg shadow-sm">
-      <h1 class="font-semibold text-2xl text-center">Rangking</h1>
+    <section id="ranking" class="bg-white p-6 rounded-lg flex flex-col gap-2 outline outline-1 outline-gray-200">
+      <h2 class="text-2xl font-bold text-gray-800 mx-auto tracking-wide">
+        Daftar Ranking Mahasiswa
+      </h2>
+    </section>
+    <div class="w-full p-6 flex flex-col gap-5 bg-white outline outline-1 outline-gray-200 rounded-lg">
       @foreach($ranks as $item)
         <div class="border border-gray-300 rounded-lg shadow-sm p-5">
           <div class="flex items-center gap-7">

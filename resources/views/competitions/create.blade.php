@@ -12,7 +12,7 @@
           Nama Kompetisi
         </label>
         <input type="text" id="name" name="name" value="{{ old('name') }}"
-               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
                required>
         @error('name')
         <p class="text-red-500 font-light">
@@ -25,7 +25,7 @@
           Deskripsi Kompetisi
         </label>
         <textarea
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           name="description" rows="3">{{ old('description') }}</textarea>
         @error('description')
         <p class="text-red-500 font-light">
@@ -38,7 +38,7 @@
           Jenis Kompetisi
         </label>
         <select id="type" name="type"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
                 required>
           <option value="">Pilih Jenis Kompetisi</option>
           <option value="Karya Ilmiah">Karya Ilmiah</option>
@@ -58,7 +58,7 @@
             Provinsi
           </label>
           <select id="province" name="province"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
                   required>
             <option value="">Pilih Provinsi</option>
           </select>
@@ -73,7 +73,7 @@
             Kota/Kabupaten
           </label>
           <select id="city" name="city"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
                   required>
             <option value="">Pilih Kota/Kabupaten</option>
           </select>
@@ -89,7 +89,7 @@
           Penyelenggara Kompetisi
         </label>
         <input type="text" id="organizer" name="organizer" value="{{ old('organizer') }}"
-               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
                required>
         @error('organizer')
         <p class="text-red-500 font-light">
@@ -103,7 +103,7 @@
         </label>
         <div class="flex justify-between items-center gap-3">
           <input type="date" id="date" name="start_date" value="{{ old('start_date') }}"
-                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
                  required>
           @error('start_date')
           <p class="text-red-500 font-light">
@@ -112,7 +112,7 @@
           @enderror
           <p>Sampai</p>
           <input type="date" id="date" name="end_date" value="{{ old('end_date') }}"
-                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
                  required>
           @error('end_date')
           <p class="text-red-500 font-light">
@@ -122,7 +122,7 @@
         </div>
       </div>
       <button type="submit"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+              class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
         Tambah
       </button>
     </form>

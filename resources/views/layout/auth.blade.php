@@ -1,7 +1,9 @@
 @extends('layout.master')
 
 @section('layout')
-  <main class="grid h-screen place-items-center bg-slate-700 px-5 md:px-0">
-    @yield('content')
-  </main>
+  <div class="flex" id="app">
+    <div class="min-h-screen bg-[#f9fafb] flex flex-col w-screen h-screen justify-center items-center">
+      @yield('content')
+    </div>
+  </div>
 @endsection

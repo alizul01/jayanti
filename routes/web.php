@@ -30,10 +30,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
   Route::get('/', [AdminController::class, 'index'])->name('admin.index');
   Route::get('/ranks', [AdminController::class, 'rank'])->name('admin.ranks');
   Route::resource('competitions', CompetitionController::class);
+  Route::resource('users', \App\Http\Controllers\UserController::class);
   Route::prefix('/achievements')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('achievement.admin.index');
   });
-  Route::get('/upload-form', [ImportController::class, 'showUploadForm'])->name('import.form');
+  Route::get('/upload-form', [ImportController::class, 'showUploadForm'])->name('admin.import');
   Route::post('/upload', [ImportController::class, 'upload'])->name('import.upload');
 
 });

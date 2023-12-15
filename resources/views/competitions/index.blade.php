@@ -2,9 +2,10 @@
 
 @section('content')
   <main class="flex flex-col gap-10 px-20 py-6 bg-gray-100 min-h-screen">
-    <div class="flex flex-col gap-5">
-      <h1 class="font-semibold text-3xl mx-auto tracking-wide">Daftar Kompetisi</h1>
-      <hr class="border-t-2 border-gray-300">
+    <div id="competition" class="bg-white p-6 rounded-lg flex flex-col gap-2 outline outline-1 outline-gray-200">
+      <h2 class="text-2xl font-bold text-gray-800 mx-auto tracking-wide">
+        Daftar Kompetisi
+      </h2>
     </div>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
       @foreach($competition as $item)
@@ -21,7 +22,7 @@
             {{ $item->description }}
           </p>
           <button type="button"
-                  class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                  class="flex items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
             Link Kompetisi
             <svg class="w-3 h-3 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                  viewBox="0 0 18 18">

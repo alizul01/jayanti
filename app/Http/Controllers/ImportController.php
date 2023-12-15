@@ -10,7 +10,7 @@ class ImportController extends Controller
 {
     public function showUploadForm()
     {
-        return view('admin.upload-excel.upload-form');
+        return view('admin.upload.upload-form');
     }
 
     public function upload(Request $request)

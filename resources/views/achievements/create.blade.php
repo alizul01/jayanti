@@ -11,21 +11,21 @@
       <div>
         <label for="username" class="block mb-2 font-medium text-gray-900">Nama</label>
         <input type="text" id="username"
-               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                value="{{Auth::user()->name}}" readonly
                required>
       </div>
       <div>
         <label for="nim" class="block mb-2 font-medium text-gray-900">NIM</label>
         <input type="text" id="nim"
-               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                value="{{Auth::user()->nim}}" readonly
                required>
       </div>
       <div>
         <label for="prodi" class="block mb-2 font-medium text-gray-900">Prodi</label>
         <input type="text" id="prodi"
-               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                value="{{Auth::user()->studyprograms->name}}" readonly
                required>
       </div>
@@ -34,7 +34,7 @@
             class="text-red-600">*</span>
         </label>
         <input type="text" id="name" name="name"
-               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                value="{{old('name')}}"
                required>
       </div>
@@ -44,7 +44,7 @@
           Deskripsi Kompetisi<span class="text-red-600">*</span>
         </label>
         <textarea id="description" name="description" rows="4"
-                  class="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-300 focus:border-blue-300"
+                  class="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-300 focus:border-purple-300"
                   required>{{old('description')}}</textarea>
       </div>
       <div>
@@ -52,7 +52,7 @@
             class="text-red-600">*</span>
         </label>
         <input type="text" id="organizer" name="organizer"
-               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                value="{{old('organizer')}}"
                required>
       </div>
@@ -61,7 +61,7 @@
             class="text-red-600">*</span>
         </label>
         <input type="text" id="location" name="location"
-               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                value="{{old('location')}}"
                required>
       </div>
@@ -71,7 +71,7 @@
               class="text-red-600">*</span>
           </label>
           <input type="date" id="start_date" name="start_date"
-                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                  value="{{old('start_date')}}"
                  required>
         </div>
@@ -80,7 +80,7 @@
             Pelaksanaan<span class="text-red-600">*</span>
           </label>
           <input type="date" id="end_date" name="end_date"
-                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full"
+                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full"
                  value="{{old('end_date')}}"
                  required>
         </div>
@@ -89,7 +89,7 @@
         <label for="level_id" class="block mb-2 font-medium text-gray-900">Tingkat<span
             class="text-red-600">*</span></label>
         <select id="level_id" name="level_id"
-                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full">
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full">
           <option selected>Pilih Tingkat Kompetisi</option>
           <option value="1">Internasional</option>
           <option value="2">Nasional</option>
@@ -100,7 +100,7 @@
         <label for="rank_id" class="block mb-2 font-medium text-gray-900">Peringkat<span
             class="text-red-600">*</span></label>
         <select id="rank_id" name="rank_id"
-                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full">
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full">
           <option selected>Pilih Peringkat</option>
           <option value="1">Juara I</option>
           <option value="2">Juara II</option>
@@ -115,7 +115,7 @@
             File Ide/Karya<span class="text-yellow-300">*</span>
           </label>
           <input
-            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full cursor-pointer"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full cursor-pointer"
             name="idea_file"
             aria-describedby="idea_file_help" id="idea_file" type="file">
           @error('idea_file')
@@ -130,7 +130,7 @@
             File Poster/Undangan Kompetisi<span class="text-red-600">*</span>
           </label>
           <input
-            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full cursor-pointer"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full cursor-pointer"
             name="poster_file"
             aria-describedby="poster_file_help" id="poster_file" type="file">
           @error('poster_file')
@@ -147,7 +147,7 @@
             File Foto/Dokumentasi<span class="text-red-600">*</span>
           </label>
           <input
-            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full cursor-pointer"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full cursor-pointer"
             name="documentation_file"
             aria-describedby="documentation_file_help" id="documentation_file" type="file">
           @error('documentation_file')
@@ -162,7 +162,7 @@
             File Sertifikat<span class="text-red-600">*</span>
           </label>
           <input
-            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full cursor-pointer"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full cursor-pointer"
             name="certificate_file"
             aria-describedby="certificate_file_help" id="certificate_file" type="file"
             value="{{old('certificate_file')}}">
@@ -176,7 +176,7 @@
       </div>
       <div class="flex ml-auto">
         <button type="submit"
-                class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+                class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-700 rounded-lg hover:bg-purple-800">
           Submit
         </button>
       </div>

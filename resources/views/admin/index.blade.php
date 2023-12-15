@@ -11,7 +11,7 @@
     <div class="flex gap-5 my-5">
       <div
         class="flex flex-1 flex-col justify-center items-center gap-4 p-6 bg-white border border-gray-200 rounded-lg shadow">
-        <div class="rounded-xl p-3 bg-blue-700 text-white text-center w-1/5">
+        <div class="rounded-xl p-3 bg-purple-700 text-white text-center w-1/5">
           <i class="bx bx-calendar-event text-3xl"></i>
         </div>
         <h5 class="text-2xl font-bold tracking-tight text-gray-900">
@@ -21,7 +21,7 @@
       </div>
       <div
         class="flex flex-1 flex-col justify-center items-center gap-4 p-6 bg-white border border-gray-200 rounded-lg shadow">
-        <div class="rounded-xl p-3 bg-blue-700 text-white text-center w-1/5">
+        <div class="rounded-xl p-3 bg-purple-700 text-white text-center w-1/5">
           <i class="bx bxs-medal text-3xl"></i>
         </div>
         <h5 class="text-2xl font-bold tracking-tight text-gray-900">
@@ -38,7 +38,7 @@
           </p>
           <a href="/admin/ranks" class="no-underline">
             <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                    class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
               Lihat Semua
             </button>
           </a>

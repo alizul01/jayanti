@@ -5,12 +5,12 @@
     <table class="w-full text-sm text-left text-gray-500">
       <div class="flex justify-between items-center bg-white p-5">
         <p class="text-2xl font-semibold text-left text-gray-900">
-          Agenda Kompetisi
+          Nama Mahasiswa
         </p>
         <a href="/admin/competitions/create" class="no-underline">
           <button type="button"
                   class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
-            Tambah Kompetisi
+            Tambah Mahasiswa
           </button>
         </a>
       </div>
@@ -23,10 +23,10 @@
           Nama Kompetisi
         </th>
         <th scope="col" class="px-6 py-3">
-          Deskripsi
+          NIM
         </th>
         <th scope="col" class="px-6 py-3">
-          Tanggal
+          Email
         </th>
         <th scope="col" class="px-6 py-3">
           Aksi
@@ -34,23 +34,21 @@
       </tr>
       </thead>
       <tbody>
-      @foreach($competition as $item)
+      @foreach($users as $item)
         <tr class="bg-white border-b">
           <td class="px-6 py-4">
             {{$loop->iteration}}
           </td>
-          <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-white">
+          <th scope="row" class="px-4 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-white">
             {{$item->name}}
           </th>
           <td class="px-6 py-4 max-w-xs">
             <p class="line-clamp-2">
-              {{$item->description}}
+              {{$item->nim}}
             </p>
           </td>
           <td class="px-6 py-4">
-            {{\Carbon\Carbon::parse($item->date)->format('d F Y')}} s.d.
-            <br>
-            {{\Carbon\Carbon::parse($item->date_end)->format('d F Y')}}
+            {{$item->email}}
           </td>
           <td class="px-6 py-4 flex gap-2">
             <a href="/admin/competitions/{{$item->id}}/edit"
@@ -70,6 +68,6 @@
       @endforeach
       </tbody>
     </table>
-    {{$competition->links()}}
+    {{$users->links()}}
   </div>
 @endsection

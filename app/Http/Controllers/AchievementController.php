@@ -47,7 +47,6 @@ class AchievementController extends Controller
    */
   public function store(StoreAchievementRequest $request): RedirectResponse
   {
-    // dd($request->all());
     $score = $request->calculateScore(
       $request->input('description'),
       $request->input('competition_name'),

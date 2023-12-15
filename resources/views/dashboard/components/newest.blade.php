@@ -17,18 +17,19 @@
 }
 @endphp
 
-<div class="max-w-2xl basis-1/4 p-6 bg-white border border-gray-300 rounded-lg shadow-sm">
-  <h5 class="mb-3 text-2xl font-semibold text-center tracking-tight text-gray-900">
-    Terbaru
-  </h5>
+<div class="max-w-2xl basis-1/3 p-6 bg-white border border-gray-300 rounded-lg shadow-sm">
+  <div class="flex justify-between items-center mb-3">
+    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+      Prestasi Terbaru
+    </h5>
+  </div>
   <div>
     @foreach($achievements as $achievement)
-      <div class="flex flex-col gap-1 border-t-2 border-gray-700 py-4">
+      <div class="flex flex-col gap-1 border-t-1 border-gray-500 py-4">
         <span>{{$achievement->user->name}}</span>
         <span>{{$achievement->user->nim}}</span>
         <span>{{ getRankDescription($achievement->rank_id) }} {{$achievement->name}}</span>
       </div>
     @endforeach
-    <div class="border-t-2 border-gray-700"></div>
   </div>
 </div>

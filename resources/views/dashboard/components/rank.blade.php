@@ -1,5 +1,7 @@
 <div class="w-full p-6 flex flex-col gap-5 bg-white border border-gray-300 rounded-lg shadow-sm">
-  <h1 class="font-semibold text-2xl text-center">Ranking</h1>
+  <h1 class="text-2xl font-bold text-gray-800">
+    Ranking 
+  </h1>
   @foreach($ranks as $item)
     <div class="border border-gray-300 rounded-lg shadow-sm p-5">
       <div class="flex items-center gap-7">
@@ -14,7 +16,7 @@
     </div>
   @endforeach
   <a href="{{ route('ranks.index') }}"
-     class="flex justify-end ml-auto mt-auto max-w-fit px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+     class="flex justify-end ml-auto mt-auto max-w-fit px-3 py-2 text-sm font-medium text-center text-white bg-purple-700 rounded-lg hover:bg-purple-800">
     Selengkapnya
   </a>
 </div>

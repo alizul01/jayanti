@@ -29,7 +29,7 @@ class UserImport implements ToCollection, WithChunkReading
                     'nim' => (int) $row[2],
                     'name' => $row[3],
                     'email' => $this->createEmailFromNim($row[2]),
-                    'password' => bcrypt((int) $row[2]), // Using bcrypt for Argon2 hashing
+                    'password' => bcrypt((int) $row[2]),
                     'study_program_id' => $this->getStudyProgramId($row[4]),
                 ];
 
@@ -43,7 +43,6 @@ class UserImport implements ToCollection, WithChunkReading
             User::upsert($usersData, ['nim'], ['name', 'email', 'password', 'study_program_id']);
         }
 
-        // Log any remaining imported data
         if ($this->importedCount % 100 !== 0) {
             $this->logImportProgress();
         }
@@ -51,7 +50,7 @@ class UserImport implements ToCollection, WithChunkReading
 
     public function chunkSize(): int
     {
-        return 200; // Set the desired chunk size
+        return 200;
     }
 
     private function getStudyProgramId(string $studyProgramName): int
@@ -65,7 +64,7 @@ class UserImport implements ToCollection, WithChunkReading
         return $nim . '@student.polinema.ac.id';
     }
 
-    private function logImportProgress()
+    private function logImportProgress(): void
     {
         info("Imported $this->importedCount data");
     }

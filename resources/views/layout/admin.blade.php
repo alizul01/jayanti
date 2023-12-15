@@ -4,7 +4,9 @@
   <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
     <header class="fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
       <div class="flex flex-col items-center justify-center gap-1 h-14">
-        <span class="text-lg font-semibold">Admin JAYANTI</span>
+        <span class="text-xl font-bold">
+          ADMIN JAYANTI
+        </span>
       </div>
       <hr>
       <nav class="overflow-y-auto overflow-x-hidden flex-grow">
@@ -24,7 +26,7 @@
             </a>
           </li>
           <li>
-            <a href="/admin/ranks"
+            <a href="{{ route('admin.ranks') }}"
               class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
               <span class="inline-flex justify-center items-center ml-4">
                 <i class="bx bx-bar-chart-alt-2 text-lg"></i>
@@ -33,31 +35,19 @@
             </a>
           </li>
           <li>
-            <a href="/admin/competitions"
-              class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-              <span class="inline-flex justify-center items-center ml-4">
-                <i class="bx bx-calendar-event text-lg"></i>
-              </span>
-              <span class="ml-2 text-sm tracking-wide truncate">Agenda</span>
-            </a>
+            <x-navlinks route="{{ route('competitions.index') }}" name="Agenda">
+              <i class="bx bx-calendar-event text-lg"></i>
+            </x-navlinks>
           </li>
           <li>
-            <a href="/admin/achievements"
-              class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-              <span class="inline-flex justify-center items-center ml-4">
-                <i class="bx bxs-medal text-lg"></i>
-              </span>
-              <span class="ml-2 text-sm tracking-wide truncate">Prestasi</span>
-            </a>
+            <x-navlinks route="{{ route('achievement.admin.index') }}" name="Data Prestasi">
+              <i class="bx bxs-medal text-lg"></i>
+            </x-navlinks>
           </li>
           <li>
-            <a href="/admin/upload-form"
-              class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-              <span class="inline-flex justify-center items-center ml-4">
-                <i class="bx bxs-medal text-lg"></i>
-              </span>
-              <span class="ml-2 text-sm tracking-wide truncate">Upload File</span>
-            </a>
+            <x-navlinks route="{{ route('admin.import') }}" name="Import Data">
+              <i class="bx bx-import text-lg"></i>
+            </x-navlinks>
           </li>
           <li class="px-5">
             <div class="flex flex-row items-center h-8">
@@ -65,18 +55,9 @@
             </div>
           </li>
           <li>
-            <a href="{{ route('logout') }}"
-              class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-              <span class="inline-flex justify-center items-center ml-4">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-                  </path>
-                </svg>
-              </span>
-              <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
-            </a>
+            <x-navlinks route="{{ route('logout') }}" name="Logout">
+              <i class="bx bx-log-out text-lg"></i>
+            </x-navlinks>
           </li>
         </ul>
       </nav>

@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
     $this->call([
       StudyProgramSeeder::class,
       UserSeeder::class,
-      CompetitionSeeder::class,
-      AdminSeeder::class,
       LevelSeeder::class,
       RankSeeder::class,
 //      AchievementSeeder::class,

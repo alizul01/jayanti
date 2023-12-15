@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
+
   public function index()
   {
     $ranks = Achievement::select('user_id', DB::raw('SUM(score) as total_score'), DB::raw('GROUP_CONCAT(name) as names'))
@@ -30,5 +28,4 @@ class AdminController extends Controller
       ->paginate(5);
     return view('admin.index', compact('ranks'));
   }
-
 }
