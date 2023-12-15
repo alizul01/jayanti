@@ -15,7 +15,7 @@
           <i class="bx bx-calendar-event text-3xl"></i>
         </div>
         <h5 class="text-2xl font-bold tracking-tight text-gray-900">
-          50
+          {{$competitions->count()}}
         </h5>
         <p>Jumlah Agenda</p>
       </div>
@@ -25,7 +25,7 @@
           <i class="bx bxs-medal text-3xl"></i>
         </div>
         <h5 class="text-2xl font-bold tracking-tight text-gray-900">
-          23
+          {{$achievements->count()}}
         </h5>
         <p>Jumlah Prestasi</p>
       </div>

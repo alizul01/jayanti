@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Achievement;
-use App\Models\Admin;
-use App\Http\Requests\StoreAdminRequest;
-use App\Http\Requests\UpdateAdminRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use App\Models\Competition;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -18,7 +14,9 @@ class AdminController extends Controller
     $ranks = Achievement::select('user_id', DB::raw('SUM(score) as total_score'), DB::raw('GROUP_CONCAT(name) as names'))
       ->groupBy('user_id')
       ->get(5);
-    return view('admin.index', compact('ranks'));
+    $competitions = Competition::all();
+    $achievements = Achievement::all();
+    return view('admin.index', compact('ranks', 'competitions', 'achievements'));
   }
 
   public function rank()
