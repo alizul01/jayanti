@@ -98,6 +98,10 @@ class AchievementController extends Controller
    */
   public function edit(Achievement $achievement): Response
   {
+
+    if (Auth::user()->role == 'admin') {
+      return response()->view('admin.achievements.edit', compact('achievement'));
+    }
     return response()->view('achievements.edit', compact('achievement'));
   }
 

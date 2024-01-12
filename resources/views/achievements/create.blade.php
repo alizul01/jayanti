@@ -109,10 +109,13 @@
           <option value="5">Best</option>
         </select>
       </div>
+      <h2 class="font-semibold text-xl mb-2 mt-8">
+        File Pendukung
+      </h2>
       <div class="flex gap-5">
         <div class="flex-1">
           <label class="block mb-2 font-medium text-gray-900" for="idea_file">
-            File Ide/Karya<span class="text-yellow-300">*</span>
+            File Ide atau Karya<span class="text-yellow-300">*</span>
           </label>
           <input
             class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-purple-300 focus:border-purple-300 block w-full cursor-pointer"

@@ -13,7 +13,7 @@ class AdminController extends Controller
   {
     $ranks = Achievement::select('user_id', DB::raw('SUM(score) as total_score'), DB::raw('GROUP_CONCAT(name) as names'))
       ->groupBy('user_id')
-      ->get(5);
+      ->paginate(10);
     $competitions = Competition::all();
     $achievements = Achievement::all();
     return view('admin.index', compact('ranks', 'competitions', 'achievements'));

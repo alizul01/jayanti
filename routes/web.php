@@ -30,9 +30,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
   Route::get('/', [AdminController::class, 'index'])->name('admin.index');
   Route::get('/ranks', [AdminController::class, 'rank'])->name('admin.ranks');
   Route::resource('competitions', CompetitionController::class);
-  Route::resource('users', \App\Http\Controllers\UserController::class);
+  Route::resource('users', \App\Http\Controllers\UserController::class)->only(['index', 'edit', 'update', 'destroy', 'create']);
   Route::prefix('/achievements')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('achievement.admin.index');
+    Route::get('/{achievement}', [AchievementController::class, 'show'])->name('achievement.admin.show');
+    Route::get('/{achievement}/edit', [AchievementController::class, 'edit'])->name('achievement.admin.edit');
   });
   Route::get('/upload-form', [ImportController::class, 'showUploadForm'])->name('admin.import');
   Route::post('/upload', [ImportController::class, 'upload'])->name('import.upload');
@@ -50,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('achievements', AchievementController::class);
   Route::resource('ranks', RankController::class);
   Route::resource('competitions', CompetitionController::class);
+  Route::resource('users', \App\Http\Controllers\UserController::class)->only(['show']);
 
   // route untuk post create achievement
   Route::post('/store/achievements', [AchievementController::class, 'store'])->name('achievements.store');

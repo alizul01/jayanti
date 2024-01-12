@@ -12,6 +12,7 @@ class DashboardController extends Controller
   {
     $ranks = Achievement::select('user_id', DB::raw('SUM(score) as total_score'), DB::raw('GROUP_CONCAT(name) as names'))
       ->groupBy('user_id')
+      ->orderByDesc('total_score')
       ->paginate(5);
     $achievements = Achievement::orderBy('created_at', 'desc')->take(5)->get();
     $competitions = Competition::orderBy('created_at', 'desc')->take(3)->get();

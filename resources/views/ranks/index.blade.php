@@ -11,7 +11,13 @@
         <div class="border border-gray-300 rounded-lg shadow-sm p-5">
           <div class="flex items-center gap-7">
             <span class="text-5xl font-medium ml-2">{{$loop->iteration}}</span>
-            <div class="border border-black rounded-full p-5 h-fit"></div>
+            <div>
+              <img
+                src="https://source.boringavatars.com/beam/120/{{ $item->user->name }}"
+                alt="Avatar"
+                class="border-black border-2 rounded-full w-10 h-10"
+              >
+            </div>
             <div class="flex flex-col gap-1">
               <span class="font-semibold">{{$item->user->name}}</span>
               <span class="text-gray-500">{{$item->user->studyprograms->name}}</span>

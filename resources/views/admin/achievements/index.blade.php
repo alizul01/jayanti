@@ -33,7 +33,7 @@
             {{ $loop->iteration }}
           </td>
           <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-400">
-            {{ $achievement->name }}
+            {{ $achievement->user->name }}
           </td>
           <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-400">
             {{ $achievement->name }}
@@ -42,7 +42,7 @@
             {{ $achievement->score }}
           </td>
           <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-400">
-            <a href="#"
+            <a href="{{ route('achievements.edit', $achievement) }}"
                class="text-indigo-600 hover:text-indigo-900">Edit</a>
           </td>
         </tr>

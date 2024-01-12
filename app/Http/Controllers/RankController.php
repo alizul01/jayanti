@@ -25,7 +25,7 @@ class RankController extends Controller
   {
     $ranks = Achievement::select('user_id', DB::raw('SUM(score) as total_score'), DB::raw('GROUP_CONCAT(name) as names'))
       ->groupBy('user_id')
-      ->paginate(5);
+      ->paginate(15);
 
     return response()->view('ranks.index', compact('ranks'));
   }

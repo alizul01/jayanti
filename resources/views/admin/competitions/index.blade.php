@@ -57,11 +57,10 @@
                class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm p-2">
               <i class="bx bxs-pencil"></i>
             </a>
-            <form action="/admin/competitions/{{$item->id}}" method="POST" class="inline">
+            <form action="/admin/competitions/{{$item->id}}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kompetisi ini?');">
               @csrf
               @method('DELETE')
-              <button type="submit"
-                      class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm p-2">
+              <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm p-2">
                 <i class="bx bxs-trash-alt"></i>
               </button>
             </form>
