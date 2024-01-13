@@ -9,6 +9,8 @@ use App\Http\Requests\UpdateCompetitionRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http; // Add this line
+
 
 class CompetitionController extends Controller
 {
@@ -62,7 +64,13 @@ class CompetitionController extends Controller
    */
   public function edit(Competition $competition): Response
   {
-    return response()->view('competitions.edit', compact('competition'));
+    $competition = Competition::findOrFail($competition->id);
+    $provinces = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')->json();
+      //   $regencies =array_map(function ($item) {
+      //     return $item['name'];
+      // }, $provinces);
+      // dd($provinces);
+    return response()->view('competitions.edit', compact('competition','provinces'));
   }
 
   /**
@@ -70,7 +78,17 @@ class CompetitionController extends Controller
    */
   public function update(UpdateCompetitionRequest $request, Competition $competition): RedirectResponse
   {
-    $competition->update($request->validated());
+    $request->validate([
+      'name' => 'required|string|max:255',
+      'description' => 'nullable|string',
+      'type' => 'required|string|max:255',
+      'province' => 'required|string|max:255',
+      'city' => 'required|string|max:255',
+      'organizer' => 'required|string|max:255',
+      'start_date' => 'required|date',
+      'end_date' => 'required|date|after_or_equal:start_date',
+  ]);
+      $competition->update($request->validated());
     return redirect()->route('competitions.index');
   }
 
