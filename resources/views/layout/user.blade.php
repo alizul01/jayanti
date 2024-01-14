@@ -1,5 +1,8 @@
 @extends('layout.master')
 
 @section('layout')
-    @yield('content')
+  <header>
+    @include('layout.components.navbar')
+  </header>
+  @yield('content')
 @endsection

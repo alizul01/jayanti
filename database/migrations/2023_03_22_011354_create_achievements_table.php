@@ -17,13 +17,13 @@ return new class extends Migration
             $table->foreignId('rank_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->string('name');
-            $table->string('type');
             $table->string('location');
             $table->string('organizer');
             $table->text('description');
-            $table->string('documentation_file')->nullable();
-            $table->string('certificate_file')->nullable();
-            $table->string('results_url')->nullable();
+            $table->string('documentation_file');
+            $table->string('certificate_file');
+            $table->string('idea_file');
+            $table->string('poster_file');
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

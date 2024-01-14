@@ -17,10 +17,8 @@ class RankSeeder extends Seeder
             'Juara 1',
             'Juara 2',
             'Juara 3',
-            'Juara Harapan 1',
-            'Juara Harapan 2',
-            'Juara Harapan 3',
-            'Peserta',
+            'Juara Harapan',
+            'Best',
         ];
 
         foreach ($ranks as $rank) {

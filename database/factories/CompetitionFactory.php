@@ -17,7 +17,14 @@ class CompetitionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+          'name' => $this->faker->name,
+          'description' => $this->faker->text,
+          'type' => $this->faker->jobTitle,
+          'city' => $this->faker->city,
+          'province' => $this->faker->country,
+          'organizer' => $this->faker->name,
+          'start_date' => $this->faker->date,
+          'end_date' => $this->faker->date
         ];
     }
 }

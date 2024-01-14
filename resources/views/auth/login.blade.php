@@ -1,53 +1,57 @@
 @extends('layout.auth')
 
 @section('content')
-    <div class="bg-gray-100 h-screen">
-        <div class="container mx-auto h-full flex justify-center items-center">
-            <div class="w-96 bg-white rounded p-6 shadow-xl">
-                <h1 class="text-3xl font-semibold mb-6 text-center">Login</h1>
-                <form action="{{ route('login') }}" method="post">
-                    @csrf
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="email" type="email" name="email" value="{{ old('email') }}" required
-                            autocomplete="email" autofocus>
-                        @error('email')
-                            <span class="text-red-500 text-xs">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password:</label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password" type="password" name="password" required autocomplete="current-password">
-                        @error('password')
-                            <span class="text-red-500 text-xs">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <label class="inline-flex items-center">
-                            <input class="form-checkbox" type="checkbox" name="remember" id="remember"
-                                {{ old('remember') ? 'checked' : '' }}>
-                            <span class="ml-2 text-sm text-gray-700">Remember Me</span>
-                        </label>
-                        @if (Route::has('password.request'))
-                            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                                href="{{ route('password.request') }}">
-                                Forgot Password?
-                            </a>
-                        @endif
-                    </div>
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit">
-                            Login
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <section class="bg-white px-16 py-12 rounded-md">
+    <div>
+      <h1 class="font-medium text-lg">
+        Jayanti
+      </h1>
+      <p class="text-sm text-gray-500">
+        Hi, welcome back! Please log in to your account.
+      </p>
     </div>
+
+    <div>
+      <form class="space-y-6 mt-8" action="{{ route('auth.login') }}" METHOD="POST">
+        @csrf
+        <div class="flex flex-col items-start">
+          <label for="email" class="block mb-2 text-sm font-light text-slate-800">
+            Email address
+          </label>
+          <input type="text" name="email" id="email" value="{{old('email')}}"
+                 class="bg-white border border-gray-200 text-gray-900 text-sm rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 @error('email') border-red-500 @enderror placeholder-gray-400 placeholder-opacity-50"
+                 required autocomplete="email" autofocus placeholder="nim@student.polinema.ac.id">
+          @error('email')
+          <p class="text-red-500">
+            {{$message}}
+          </p>
+          @enderror
+        </div>
+        <div class="flex flex-col items-start">
+          <label for="password" class="block mb-2 text-sm font-light text-slate-800">
+            Password
+          </label>
+          <input type="password" name="password" id="password" value="{{@old('password')}}"
+                 class="bg-white border border-gray-200 text-gray-900 text-sm rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 @error('password') border-red-500 @enderror placeholder-gray-400 placeholder-opacity-50"
+                 required autocomplete="current-password" placeholder="********">
+          @error('password')
+          <p class="text-red-500">
+            {{$message}}
+          </p>
+          @enderror
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button type="submit"
+                  class="w-full text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Login
+          </button>
+        </div>
+      </form>
+      <p class="text-gray-500 text-xs text-center mt-4">
+        By signing up, you agree to our Terms <br />  of Use
+        and Privacy Policy.
+      </p>
+    </div>
+  </section>
 @endsection
