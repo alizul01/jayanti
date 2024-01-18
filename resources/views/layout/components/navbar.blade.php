@@ -1,11 +1,11 @@
-<nav class="bg-white text-black md:px-16 py-1 shadow-lg">
-  <div class="flex flex-wrap items-center gap-8 mx-auto py-2 px-4">
-    <a href="/" class="items-center border p-2 bg-white rounded-full md:flex hidden">
+<nav class="bg-white text-black md:px-16 py-1 shadow-md">
+  <div class="flex items-center justify-between gap-8 container mx-auto max-w-7xl py-2 px-2 sm:px-0">
+    <a href="/" class="items-center border bg-white rounded-full md:flex hidden">
       <img src="{{ asset('img/logo.png') }}" alt="logo" class="w-7 h-7 object-contain rounded-full">
     </a>
 
     <button data-collapse-toggle="navbar-default" type="button"
-            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
             aria-controls="navbar-default" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
       <i class="bx bx-menu text-3xl"></i>
@@ -31,7 +31,7 @@
         </li>
       </ul>
     </div>
-    <div class="ml-auto">
+    <div class="">
       <a href="{{ route('logout') }}"
          class="inline-block px-6 py-2 text-sm rounded-lg font-medium leading-6 text-center text-red-50 bg-red-600 transition shadow hover:shadow-lg hover:bg-red-800">
         Logout

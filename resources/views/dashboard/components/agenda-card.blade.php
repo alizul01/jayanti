@@ -1,11 +1,14 @@
-<div class="p-8 bg-white rounded-lg outline outline-1 outline-gray-200">
-  <div class="mb-12">
-    <h2 class="text-2xl font-bold text-gray-800">
-      Mau memulai hal baru apa hari ini? 🤔
-    </h2>
-    <p class="text-gray-400 font-light">
-      Pilih kompetisi yang ingin kamu ikuti dan mulai berkompetisi!
-    </p>
+<section id="agenda" class="rounded-lg">
+  <div class="mb-8">
+    <div class="flex justify-start gap-3 items-center relative">
+      <div class="relative">
+        <div class="w-4 h-4 rounded-full bg-purple-600 animate-ping"></div>
+        <div class="w-4 h-4 rounded-full bg-purple-600 absolute top-0"></div>
+      </div>
+      <h2 class="text-xl font-semibold text-gray-800 inline">
+        Mau memulai hal baru apa hari ini?
+      </h2>
+    </div>
   </div>
   <div>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -30,4 +33,4 @@
       @endforeach
     </section>
   </div>
-</div>
+</section>
