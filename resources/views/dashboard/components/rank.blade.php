@@ -30,7 +30,7 @@
         </span>
         <span class="text-gray-700 text-sm">{{ $item->user->studyprograms->name }}</span>
       </div>
-      <span class="ml-auto text-2xl font-semibold">{{ $item->total_score }}</span>
+      <span class="ml-auto text-xl font-normal">{{ $item->total_score }} XP</span>
     </div>
   @endforeach
   <a href="{{ route('ranks.index') }}"

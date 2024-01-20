@@ -1,36 +1,59 @@
 @extends('layout.user')
 
 @section('content')
-  <main class="flex flex-col gap-10 px-20 py-6 bg-gray-100 min-h-screen">
-    <div id="competition" class="bg-white p-6 rounded-lg flex flex-col gap-2 outline outline-1 outline-gray-200">
-      <h2 class="text-2xl font-bold text-gray-800 mx-auto tracking-wide">
-        Daftar Kompetisi
-      </h2>
-    </div>
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      @foreach($competition as $item)
-        <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow">
-          <div class="flex justify-between items-center mb-3">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
-              {{ $item->name }}
-            </h5>
-            <span class="text-sm text-gray-600">
-              {{ $item->created_at->diffForHumans() }}
-            </span>
-          </div>
-          <p class="mb-3 font-normal text-gray-500 line-clamp-3">
-            {{ $item->description }}
+  <div class="flex flex-col gap-10 container mx-auto max-w-7xl py-8 relative z-0 min-h-screen">
+    <div class="mx-4">
+      <section id="ranks-hero"
+               class="bg-green-700 px-4 py-7 md:p-8 rounded-lg items-center flex flex-col gap-8 text-white container relative overflow-hidden">
+        <div>
+          <p class="font-light text-center text-sm md:text-base">
+            Hello, {{ Str::title(Auth::user()->name) }}!
           </p>
-          <a href="{{$item->link}}" class="flex items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 w-fit">
-            Link Kompetisi
-            <svg class="w-3 h-3 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                 viewBox="0 0 18 18">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
-            </svg>
-          </a>
+          <h2 class="text-2xl md:text-3xl font-bold text-center">
+            Let's join the competition!
+          </h2>
         </div>
-      @endforeach
-    </section>
-  </main>
+        <img src="{{ asset('img/design/star.png') }}" alt="hero" class="absolute bottom-0 right-0 opacity-10">
+      </section>
+      <div class="mt-8">
+        <h2 class="text-start text-2xl sm:text-start sm:text-3xl font-bold text-gray-800">
+          All Competition
+        </h2>
+      </div>
+      <div class="flex flex-col gap-5 mt-2">
+        @foreach($competitions as $item)
+          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <img class="rounded-t-lg" src="https://www.placehold.it/700x400" alt="Placeholder"/>
+            </a>
+            <div class="p-5 flex flex-col gap-2">
+            <span
+              class="bg-purple-100 w-fit text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
+              {{$item->organizer}}
+            </span>
+              <span>
+              <a href="#">
+              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {{ $item->name }}
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-sm text-gray-500 line-clamp-3">
+              {{ $item->description }}
+            </p>
+            </span>
+              <span class="text-sm text-gray-600">
+              {{ \Carbon\Carbon::parse($item->start_date)->format('d F Y') }} - {{ \Carbon\Carbon::parse($item->end_date)->format('d F Y') }}
+            </span>
+
+              <button type="button"
+                      class="flex items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 w-fit">
+                Detail Kompetisi <i class="bx bx-right-arrow-alt ml-2"></i>
+              </button>
+            </div>
+          </div>
+        @endforeach
+        {{$competitions->links()}}
+      </div>
+    </div>
+  </div>
 @endsection

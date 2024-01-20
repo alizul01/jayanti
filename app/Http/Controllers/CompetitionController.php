@@ -25,12 +25,12 @@ class CompetitionController extends Controller
   public function index(): Response
   {
     $roles = Auth::user()->role;
-    $competition = Competition::paginate(5);
+    $competitions = Competition::paginate(5);
 
     if ($roles == 'admin') {
-      return response()->view('admin.competitions.index', compact('competition'));
+      return response()->view('admin.competitions.index', compact('competitions'));
     }
-    return response()->view('competitions.index', compact('competition'));
+    return response()->view('competitions.index', compact('competitions'));
   }
 
   /**
