@@ -1,9 +1,9 @@
-<div class="w-full p-6 flex flex-col gap-5 relative">
+<div class="w-full flex flex-col gap-5 relative">
   <div>
-    <p class="text-center sm:text-start text-purple-700 mb-2 font-semibold">
+    <p class="text-center text-sm sm:text-start text-purple-700 sm:mb-2 font-semibold">
       #Competition
     </p>
-    <h2 class="text-center sm:text-start text-3xl font-bold text-gray-800">
+    <h2 class="text-center text-2xl sm:text-start sm:text-3xl font-bold text-gray-800">
       Student Score
     </h2>
   </div>

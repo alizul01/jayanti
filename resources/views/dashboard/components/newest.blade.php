@@ -17,12 +17,12 @@
   }
 @endphp
 
-<div class="max-w-2xl basis-1/3 bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden h-fit">
+<div class="max-w-2xl basis-1/3 sm:mt-0 mt-8 bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden h-fit">
   <div class="p-4">
-    <p class="text-start text-purple-700 font-semibold">
+    <p class="text-start text-purple-700 font-semibold text-sm sm:mb-2 sm:text-lg">
       #Newest
     </p>
-    <h2 class="text-start text-3xl font-bold text-gray-800">
+    <h2 class="text-start text-2xl sm:text-3xl font-bold text-gray-800">
       Achievement
     </h2>
   </div>
