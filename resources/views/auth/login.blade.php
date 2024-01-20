@@ -1,13 +1,13 @@
 @extends('layout.auth')
 
 @section('content')
-  <section class="bg-white px-16 py-12 rounded-md">
+  <section class="bg-white px-16 py-12 rounded-lg shadow-sm">
     <div>
-      <h1 class="font-medium text-lg">
-        Jayanti
+      <h1 class="font-bold text-xl">
+        Welcome to, Jayanti 👋
       </h1>
       <p class="text-sm text-gray-500">
-        Hi, welcome back! Please log in to your account.
+        Please login to your account to continue
       </p>
     </div>
 
