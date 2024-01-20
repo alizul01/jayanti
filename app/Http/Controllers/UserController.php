@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StudyProgram;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+      $studyPrograms = StudyProgram::all();
+      return response()->view('admin.users.create', compact('studyPrograms'));
     }
 
     /**
@@ -30,7 +32,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO: validate request and create user
     }
 
     /**
@@ -55,7 +57,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //TODO: validate request and update user
     }
 
     /**
@@ -63,6 +65,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //TODO: delete user
     }
 }

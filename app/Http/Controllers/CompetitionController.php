@@ -38,7 +38,7 @@ class CompetitionController extends Controller
    */
   public function create(): Response
   {
-    return response()->view('competitions.create');
+    return response()->view('admin.competitions.create');
   }
 
   /**

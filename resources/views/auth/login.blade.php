@@ -1,7 +1,7 @@
 @extends('layout.auth')
 
 @section('content')
-  <section class="bg-white px-16 py-12 rounded-lg shadow-sm">
+  <section class="bg-white px-16 md:px-24 py-12 rounded-lg shadow-md">
     <div>
       <h1 class="font-bold text-xl">
         Welcome to, Jayanti 👋
@@ -19,7 +19,7 @@
             Email address
           </label>
           <input type="text" name="email" id="email" value="{{old('email')}}"
-                 class="bg-white border border-gray-200 text-gray-900 text-sm rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 @error('email') border-red-500 @enderror placeholder-gray-400 placeholder-opacity-50"
+                 class="bg-white border text-gray-900 text-sm rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 @error('email') border-red-500 @enderror placeholder-gray-800 placeholder-opacity-50"
                  required autocomplete="email" autofocus placeholder="nim@student.polinema.ac.id">
           @error('email')
           <p class="text-red-500">
@@ -32,7 +32,7 @@
             Password
           </label>
           <input type="password" name="password" id="password" value="{{@old('password')}}"
-                 class="bg-white border border-gray-200 text-gray-900 text-sm rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 @error('password') border-red-500 @enderror placeholder-gray-400 placeholder-opacity-50"
+                 class="bg-white border text-gray-900 text-sm rounded-md focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 @error('password') border-red-500 @enderror placeholder-gray-800 placeholder-opacity-50"
                  required autocomplete="current-password" placeholder="********">
           @error('password')
           <p class="text-red-500">

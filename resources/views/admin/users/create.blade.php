@@ -1,74 +1,93 @@
 @extends('layout.admin')
 
 @section('content')
-  <div class="relative max-h-screen overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500">
-      <div class="flex justify-between items-center bg-white p-5">
-        <p class="text-2xl font-semibold text-left text-gray-900">
-          Akun Mahasiswa
+  <div class="bg-white p-5 relative max-h-screen overflow-x-auto shadow-md sm:rounded-lg">
+    <h1 class="text-2xl font-semibold text-left text-gray-900">
+      Tambah User
+    </h1>
+    <form class="my-5" action="{{ route('users.store') }}" method="POST">
+      @csrf
+      <div class="mb-6">
+        <label for="nim" class="block mb-2 text-sm font-medium text-gray-900">
+          NIM
+        </label>
+        <input type="text" id="nim" name="nim" value="{{ old('nim') }}"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+               required>
+        @error('nim')
+        <p class="text-red-500 font-light">
+          {{$message}}
         </p>
-        <a href="{{route('users.create')}}" class="no-underline">
-          <button type="button"
-                  class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
-            Tambah Akun Mahasiswa
-          </button>
-        </a>
+        @enderror
       </div>
-      <thead class="text-sm text-gray-700 uppercase bg-gray-50">
-      <tr>
-        <th scope="col" class="px-6 py-3">
-          #
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Nama Kompetisi
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Deskripsi
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Tanggal
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Aksi
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach($competition as $item)
-        <tr class="bg-white border-b">
-          <td class="px-6 py-4">
-            {{$loop->iteration}}
-          </td>
-          <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-            {{$item->name}}
-          </th>
-          <td class="px-6 py-4 max-w-xs">
-            <p class="line-clamp-2">
-              {{$item->description}}
-            </p>
-          </td>
-          <td class="px-6 py-4">
-            {{\Carbon\Carbon::parse($item->date)->format('d F Y')}} s.d.
-            <br>
-            {{\Carbon\Carbon::parse($item->date_end)->format('d F Y')}}
-          </td>
-          <td class="px-6 py-4 flex gap-2">
-            <a href="/admin/competitions/{{$item->id}}/edit"
-               class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm p-2">
-              <i class="bx bxs-pencil"></i>
-            </a>
-            <form action="/admin/competitions/{{$item->id}}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kompetisi ini?');">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm p-2">
-                <i class="bx bxs-trash-alt"></i>
-              </button>
-            </form>
-          </td>
-        </tr>
-      @endforeach
-      </tbody>
-    </table>
-    {{$competition->links()}}
+      <div class="mb-6">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">
+          Nama User
+        </label>
+        <input type="text" id="name" name="name" value="{{ old('name') }}"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+               required>
+        @error('name')
+        <p class="text-red-500 font-light">
+          {{$message}}
+        </p>
+        @enderror
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
+          Email
+        </label>
+        <input type="email" id="email" name="email" value="{{ old('email') }}"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+               required>
+        @error('email')
+        <p class="text-red-500 font-light">
+          {{$message}}
+        </p>
+        @enderror
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900">
+          Password
+        </label>
+        <input type="password" id="password" name="password"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+               required>
+        @error('password')
+        <p class="text-red-500 font-light">
+          {{$message}}
+        </p>
+        @enderror
+      </div>
+      <div class="mb-6">
+        <label for="role" class="block mb-2 text-sm font-medium text-gray-900">
+          Role
+        </label>
+        <select id="role" name="role"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+                required>
+          <option value="">Pilih Role</option>
+          <option value="admin">Admin</option>
+          <option value="superadmin">Superadmin</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+      <div class="mb-6">
+        <label for="study_program_id" class="block mb-2 text-sm font-medium text-gray-900">
+          Program Studi
+        </label>
+        <select id="study_program_id" name="study_program_id"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5">
+          <option value="">Pilih Program Studi</option>
+          @foreach($studyPrograms as $studyProgram)
+            <option value="{{ $studyProgram->id }}">{{ $studyProgram->name }}</option>
+          @endforeach
+        </select>
+      </div>
+      <button type="submit"
+              class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+        Tambah
+      </button>
+    </form>
   </div>
 @endsection

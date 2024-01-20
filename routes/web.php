@@ -30,7 +30,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
   Route::get('/', [AdminController::class, 'index'])->name('admin.index');
   Route::get('/ranks', [AdminController::class, 'rank'])->name('admin.ranks');
   Route::resource('competitions', CompetitionController::class);
-  Route::resource('users', \App\Http\Controllers\UserController::class)->only(['index', 'edit', 'update', 'destroy', 'create']);
+  Route::resource('users', \App\Http\Controllers\UserController::class)->only(['index', 'edit', 'update', 'destroy', 'create', 'store']);
   Route::prefix('/achievements')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('achievement.admin.index');
     Route::get('/{achievement}', [AchievementController::class, 'show'])->name('achievement.admin.show');

@@ -7,7 +7,7 @@
         <p class="text-2xl font-semibold text-left text-gray-900">
           Agenda Kompetisi
         </p>
-        <a href="/admin/competitions/create" class="no-underline">
+        <a href="{{route('competitions.create')}}" class="no-underline">
           <button type="button"
                   class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
             Tambah Kompetisi
@@ -34,7 +34,7 @@
       </tr>
       </thead>
       <tbody>
-      @foreach($competition as $item)
+      @foreach($competitions as $item)
         <tr class="bg-white border-b">
           <td class="px-6 py-4">
             {{$loop->iteration}}
@@ -69,6 +69,6 @@
       @endforeach
       </tbody>
     </table>
-    {{$competition->links()}}
+    {{$competitions->links()}}
   </div>
 @endsection
