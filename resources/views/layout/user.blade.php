@@ -7,4 +7,7 @@
   <main class="bg-[#fbfefd] relative">
     @yield('content')
   </main>
+  <footer>
+    @include('layout.components.footer')
+  </footer>
 @endsection
