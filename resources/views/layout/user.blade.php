@@ -4,7 +4,7 @@
   <header>
     @include('layout.components.navbar')
   </header>
-  <main class="bg-[#f9f9f9]">
+  <main class="bg-[#fbfefd] relative">
     @yield('content')
   </main>
 @endsection

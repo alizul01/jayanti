@@ -1,4 +1,4 @@
-<section id="agenda" class="rounded-lg bg-white p-4">
+<section id="agenda" class="rounded-lg p-4">
   <div class="mb-8">
     <div class="flex justify-start gap-3 items-center relative">
       <div class="relative">
@@ -32,9 +32,9 @@
               {{ $item->description }}
             </p>
             </span>
-{{--            <span class="text-sm text-gray-600">--}}
-{{--              {{ \Carbon\Carbon::parse($item->start_date)->format('d F Y') }} - {{ \Carbon\Carbon::parse($item->end_date)->format('d F Y') }}--}}
-{{--            </span>--}}
+            <span class="text-sm text-gray-600">
+              {{ \Carbon\Carbon::parse($item->start_date)->format('d F Y') }} - {{ \Carbon\Carbon::parse($item->end_date)->format('d F Y') }}
+            </span>
 
             <button type="button"
                     class="flex items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 w-fit">

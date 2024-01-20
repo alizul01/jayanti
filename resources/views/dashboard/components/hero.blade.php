@@ -4,12 +4,12 @@
       Jayanti - JTI Kaya Akan Prestasi
     </p>
     <h2 class="text-base md:text-2xl font-bold mt-1">
-      Selamat Datang, {{ Auth::user()->name }}!
+      Welcome, {{ Str::title(Auth::user()->name) }}! 🙌
     </h2>
   </div>
   <button>
     <a href="{{ route('achievements.index') }}" class="bg-black hover:bg-gray-800 text-white text-sm p-4 rounded-full">
-      Lihat Prestasiku
+      My Achievement
       <span class="rounded-full bg-white text-black inline-flex justify-center items-center px-1 py-1 ml-2">
         <i class="bx bx-right-arrow-alt"></i>
       </span>
